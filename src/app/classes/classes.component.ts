@@ -11,11 +11,13 @@ export class ClassesComponent implements OnInit {
 
   constructor( private classService: SchoolClassService ) { }
 
+  classes : SchoolClass[];
+
   ngOnInit() {
     this.updateClassList();
   }
 
   updateClassList() {
-    this.classService.getAllClasses().subscribe( (data: SchoolClass[]) => console.log(JSON.stringify(data)));
+    this.classService.getAllClasses().subscribe( (data: SchoolClass[]) => { this.classes = data; } );
   }
 }
