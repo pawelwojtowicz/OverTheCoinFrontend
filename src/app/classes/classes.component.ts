@@ -36,6 +36,6 @@ export class ClassesComponent implements OnInit {
   }
 
   deleteClass( classId ) {
-    alert('deleting ID=' + classId);
+    this.classService.deleteClass(classId).subscribe(() => this.updateClassList() );
   }
 }

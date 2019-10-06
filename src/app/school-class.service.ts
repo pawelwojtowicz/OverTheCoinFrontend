@@ -17,4 +17,9 @@ export class SchoolClassService {
   getAllClasses() {
     return this.http.get( this.serviceURL+'es');
   }
+
+  deleteClass( classId: number ) {
+    const targetUrl = this.serviceURL + '/' + classId;
+    return this.http.delete( targetUrl );
+  }
 }
