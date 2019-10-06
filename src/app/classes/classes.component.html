@@ -1,5 +1,12 @@
 <table>
-    <tr><th>Description</th><th>Long Description</th></tr>
-    <tr *ngFor="let class of classes" ><td>{{class.description}}</td><td>{{class.longDescription}}</td></tr>
+    <tr><th>Description</th><th>Long Description</th><th>Actions</th></tr>
+    <tr *ngFor="let class of classes" >
+        <td>{{class.description}}</td>
+        <td>{{class.longDescription}}</td>
+        <td>
+            <mat-icon mat-list-icon (click)="editClass(class.classId)">edit</mat-icon>
+            <mat-icon mat-list-icon (click)="deleteClass(class.classId)">delete</mat-icon>
+        </td>
+    </tr>
 
 </table>
