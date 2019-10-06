@@ -1,4 +1,5 @@
-<p>classes works!</p>
-<ul>
-    <li *ngFor="let class of classes">{{class.description}}-{{class.longDescription}}</li>
-</ul>
+<table>
+    <tr><th>Description</th><th>Long Description</th></tr>
+    <tr *ngFor="let class of classes" ><td>{{class.description}}</td><td>{{class.longDescription}}</td></tr>
+
+</table>
