@@ -1,0 +1,13 @@
+<h1 mat-dialog-title>{{classRecord.description}}</h1>
+<div mat-dialog-content>
+  <mat-form-field>
+    <input matInput [(ngModel)]="classRecord.description">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput [(ngModel)]="classRecord.longDescription">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <button mat-button [mat-dialog-close]="classRecord" cdkFocusInitial>Ok</button>
+</div>

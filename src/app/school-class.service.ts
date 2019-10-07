@@ -7,15 +7,24 @@ import { SchoolClass } from '../app/school-class';
   providedIn: 'root'
 })
 export class SchoolClassService {
-  
-  private serviceURL : string;
+  private serviceURL: string;
 
   constructor(private http: HttpClient) {
-    this.serviceURL = 'http://'+getBackendAddress()+'/class';
-   }
+    this.serviceURL = 'http://' + getBackendAddress() + '/class';
+  }
+
+  saveSchoolClassInfo( schoolClass: SchoolClass) {
+    return  this.http.post(this.serviceURL, schoolClass);
+  }
+
+  getClassById( classId ) {
+    const targetUrl = this.serviceURL + '/' + classId;
+    console.log('getting the class with ID' + classId);
+    return this.http.get(targetUrl);
+  }
 
   getAllClasses() {
-    return this.http.get( this.serviceURL+'es');
+    return this.http.get( this.serviceURL + 'es');
   }
 
   deleteClass( classId: number ) {
