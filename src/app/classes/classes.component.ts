@@ -34,29 +34,27 @@ export class ClassesComponent implements OnInit {
   }
 
   addNewClass() {
-    this.openClassDialog(null);
+    this.openClassDialog(0);
   }
 
-  editClass( classId) {
-    this.classService.getClassById(classId).subscribe( (classInfo: SchoolClass) => this.openClassDialog(classInfo));
+  editClass( classId: number) {
+    this.openClassDialog(classId);
   }
 
-  deleteClass( classId ) {
+  deleteClass( classId: number ) {
     this.classService.deleteClass(classId).subscribe(() => this.updateClassList() );
   }
 
-  openClassDialog( schoolClass: SchoolClass): void {
+  openClassDialog( classId: number): void {
       const dialogRef = this.dialog.open(ClassDialogComponent, {
         width: '250px',
-        data: schoolClass
+        data: classId
       });
 
       dialogRef.afterClosed().subscribe(result => {
-        if (undefined !== result) {
-          console.log( 'saving -> ' + JSON.stringify(result));
-          this.classService.saveSchoolClassInfo(result).subscribe(() => this.updateClassList());
-        } else {
-          console.log('no saving');
+        if ( result ) {
+          console.log( 'saving data-> ' + JSON.stringify(result));
+          this.updateClassList();
         }
       });
   }
