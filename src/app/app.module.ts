@@ -13,12 +13,14 @@ import { MatInputModule } from '@angular/material';
 import { MatFormFieldModule} from '@angular/material';
 import { MatDialogModule } from '@angular/material';
 import { FormsModule } from '@angular/forms';
+import { UserListComponent } from './user-list/user-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ClassesComponent,
-    ClassDialogComponent
+    ClassDialogComponent,
+    UserListComponent
   ],
   imports: [
     BrowserModule,

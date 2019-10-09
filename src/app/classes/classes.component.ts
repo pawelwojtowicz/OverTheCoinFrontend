@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { SchoolClassService } from '../school-class.service';
-import { SchoolClass } from '../school-class';
+import { SchoolClassService } from '../services/school-class.service';
+import { SchoolClass } from '../vobjects/school-class';
 import { ClassDialogComponent } from '../class-dialog/class-dialog.component';
 import { DomSanitizer } from '@angular/platform-browser';
 import { MatIconRegistry } from '@angular/material/icon';

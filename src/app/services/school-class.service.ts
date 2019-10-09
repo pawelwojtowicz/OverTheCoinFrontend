@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { getBackendAddress } from '../app/app.config';
-import { SchoolClass } from '../app/school-class';
+import { getBackendAddress } from '../app.config';
+import { SchoolClass } from '../vobjects/school-class';
 
 @Injectable({
   providedIn: 'root'
