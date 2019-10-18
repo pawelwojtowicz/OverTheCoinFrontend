@@ -44,7 +44,7 @@ export class UserListComponent implements OnInit {
   }
 
   deleteUserById( userId: number) {
-    this.userService.deleteUser(userId);
+    this.userService.deleteUserById(userId).subscribe(() => { this.updateUsersList(); });
   }
 
   openUserEditDialog( userId: number) {

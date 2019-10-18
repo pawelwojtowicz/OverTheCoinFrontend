@@ -30,8 +30,9 @@ export class UserService {
     return this.httpClient.get(this.serviceUrl);
   }
 
-  deleteUser(userId: number) {
+  deleteUserById(userId: number) {
     const finalUrl = this.serviceUrl + '/' + userId;
+    console.log('deleting - ' + finalUrl);
     return this.httpClient.delete( finalUrl );
   }
 
