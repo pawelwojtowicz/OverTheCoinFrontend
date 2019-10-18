@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../vobjects/user';
 import { UserService } from '../services/user.service';
+import { UserDialogComponent } from '../user-dialog/user-dialog.component';
+import { DomSanitizer } from '@angular/platform-browser';
+import { MatIconRegistry } from '@angular/material/icon';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-user-list',
@@ -10,7 +14,18 @@ import { UserService } from '../services/user.service';
 export class UserListComponent implements OnInit {
   userList: User[];
 
-  constructor( private userService: UserService) { }
+
+  constructor(  private userService: UserService,
+                iconRegistry: MatIconRegistry,
+                sanitizer: DomSanitizer,
+                public dialog: MatDialog) { 
+                  iconRegistry.addSvgIcon(
+                    'delete',
+                    sanitizer.bypassSecurityTrustResourceUrl('assets/delete.svg'));
+                  iconRegistry.addSvgIcon(
+                    'edit',
+                    sanitizer.bypassSecurityTrustResourceUrl('assets/edit.svg'));
+                }
 
   ngOnInit() {
     this.updateUsersList();
@@ -33,7 +48,17 @@ export class UserListComponent implements OnInit {
   }
 
   openUserEditDialog( userId: number) {
+    const dialogRef = this.dialog.open(UserDialogComponent, {
+      width: '50%',
+      data: userId
+    });
 
+    dialogRef.afterClosed().subscribe(result => {
+      if ( result ) {
+        console.log( 'saving data-> ' + JSON.stringify(result));
+        this.updateUsersList();
+      }
+    });
   }
 
 }

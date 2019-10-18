@@ -10,7 +10,7 @@ export class UserService {
   serviceUrl: string;
 
   constructor(public httpClient: HttpClient) {
-    this.serviceUrl = getBackendAddress() + 'user';
+    this.serviceUrl = 'http://' + getBackendAddress() + '/user';
   }
 
   addUser( user: User) {

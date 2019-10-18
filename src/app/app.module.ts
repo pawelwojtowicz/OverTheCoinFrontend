@@ -14,13 +14,15 @@ import { MatFormFieldModule} from '@angular/material';
 import { MatDialogModule } from '@angular/material';
 import { FormsModule } from '@angular/forms';
 import { UserListComponent } from './user-list/user-list.component';
+import { UserDialogComponent } from './user-dialog/user-dialog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ClassesComponent,
     ClassDialogComponent,
-    UserListComponent
+    UserListComponent,
+    UserDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +36,7 @@ import { UserListComponent } from './user-list/user-list.component';
     MatDialogModule,
     FormsModule
   ],
-  entryComponents: [ClassDialogComponent],
+  entryComponents: [ClassDialogComponent,UserDialogComponent],
   providers: [],
   bootstrap: [AppComponent]
 })
